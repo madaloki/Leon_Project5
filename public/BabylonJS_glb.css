@@ -15,7 +15,7 @@ html, body {
     padding: 0;
     height: 100%;
     overflow: hidden;               /* No scroll bars around the 3D view */
-    font-family: Arial, sans-serif;
+    font-family: "Comic Sans MS", "Comic Neue", cursive;  /* Comic Sans like Project 4 */
 }
 
 body {
@@ -27,19 +27,21 @@ body {
     width: 260px;
     flex-shrink: 0;                 /* Don't let the canvas squeeze the panel */
     padding: 15px;
-    background-color: #2b2b2b;
-    color: white;
+    background: linear-gradient(#2f5f8f, #24496f);   /* Same calm blue as Project 4 */
+    color: #f3f6fa;                                  /* Soft white text */
     overflow-y: auto;
 }
 
 #panel h1 {
     font-size: 20px;
     margin-top: 0;
+    color: #ffd56b;                     /* Warm yellow title */
+    text-shadow: 1px 1px 0 #1f3a57;     /* Small dark shadow behind the letters */
 }
 
 #panel h2 {
     font-size: 16px;
-    border-top: 1px solid #555;
+    border-top: 1px solid #5f86ad;      /* Light blue divider line */
     padding-top: 10px;
 }
 
@@ -56,11 +58,11 @@ body {
 }
 
 .host {
-    color: #5fd35f;     /* green for Host */
+    color: #ffd56b;     /* yellow for Host */
 }
 
 .spectator {
-    color: #6ab0ff;     /* blue for Spectator */
+    color: #a9d4ff;     /* light blue for Spectator */
 }
 
 /* STATUS DISPLAY */
@@ -76,6 +78,21 @@ body {
 #panel input {
     margin: 4px 0;
     padding: 6px 10px;
+    font-family: inherit;               /* Use Comic Sans in buttons and boxes too */
+    border: none;
+    border-radius: 8px;                 /* Rounded corners */
+}
+
+/* Yellow buttons like Project 4 */
+#panel button {
+    font-weight: bold;
+    color: #1f3a57;
+    background: #ffd56b;
+    cursor: pointer;
+}
+
+#panel button:hover {
+    filter: brightness(1.1);            /* Slightly lighter on hover */
 }
 
 #panel select,
@@ -92,19 +109,19 @@ body {
     width: 75px;
 }
 
-#removeBtn,
-#clearBtn {
+#panel #removeBtn,
+#panel #clearBtn {      /* #panel so these beat the yellow button style */
     margin-top: 15px !important;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-#removeBtn {
+#panel #removeBtn {
     background-color: #8e5a2b;
 }
 
-#clearBtn {
+#panel #clearBtn {
     background-color: #c0392b;
 }
 
@@ -115,14 +132,14 @@ body {
 }
 
 #spectatorMessage {
-    background-color: #3a3a3a;
+    background-color: rgba(255, 255, 255, 0.12);   /* See-through white box */
     padding: 10px;
     border-radius: 5px;
 }
 
 .help {
     font-size: 12px;
-    color: #aaa;
+    color: #cfe0f2;     /* Light blue help text */
 }
 
 /* 3D CANVAS fills the rest of the window */
