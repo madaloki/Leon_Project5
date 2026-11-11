@@ -1,0 +1,13 @@
+{
+  "name": "project5",
+  "version": "1.0.0",
+  "description": "CS 310 Project 5 - Multi-user BabylonJS GLB viewer with Node.js, Express and WebSockets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
