@@ -1,0 +1,135 @@
+/*Michael Leon
+ * Intro to Web Dev - Project 5
+ *
+ * STYLING OVERVIEW
+ * ---------------------------------------------------------
+ * A control panel sits on the left and the canvas, where
+ * BabylonJS draws the 3D scene, fills the rest of the window.
+ * touch-action: none stops touch gestures from interfering
+ * with camera controls on mobile devices.
+ * ---------------------------------------------------------
+ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;               /* No scroll bars around the 3D view */
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;                  /* Panel on the left, canvas on the right */
+}
+
+/* SIDE PANEL */
+#panel {
+    width: 260px;
+    flex-shrink: 0;                 /* Don't let the canvas squeeze the panel */
+    padding: 15px;
+    background-color: #2b2b2b;
+    color: white;
+    overflow-y: auto;
+}
+
+#panel h1 {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+#panel h2 {
+    font-size: 16px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+}
+
+#panel h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* ROLE DISPLAY */
+#role {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.host {
+    color: #5fd35f;     /* green for Host */
+}
+
+.spectator {
+    color: #6ab0ff;     /* blue for Spectator */
+}
+
+/* STATUS DISPLAY */
+#status {
+    min-height: 20px;
+    color: #ffd966;
+    margin-bottom: 5px;
+}
+
+/* BUTTONS AND INPUTS */
+#panel button,
+#panel select,
+#panel input {
+    margin: 4px 0;
+    padding: 6px 10px;
+}
+
+#panel select,
+#panel input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#moveButtons {
+    text-align: center;
+}
+
+#moveButtons button {
+    width: 75px;
+}
+
+#removeBtn,
+#clearBtn {
+    margin-top: 15px !important;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#removeBtn {
+    background-color: #8e5a2b;
+}
+
+#clearBtn {
+    background-color: #c0392b;
+}
+
+/* Hidden until the server tells us our role */
+#hostControls,
+#spectatorMessage {
+    display: none;
+}
+
+#spectatorMessage {
+    background-color: #3a3a3a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.help {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* 3D CANVAS fills the rest of the window */
+#renderCanvas {        /* Select the canvas element using its ID */
+    flex: 1;
+    min-width: 0;      /* Canvas takes only the space that is left */
+    height: 100vh;     /* Make the canvas fill the entire viewport height */
+    touch-action: none; /* Disables touch scrolling on the canvas */
+    outline: none;
+}

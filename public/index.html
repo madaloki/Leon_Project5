@@ -1,0 +1,69 @@
+<!-- Michael Leon ,Intro to Web Dev - Project 5           -->
+<!-- Multi-user version of Prof R's loader  -->
+<!--                                        -->
+<!DOCTYPE html>  <!-- Tells the browser this document uses the HTML5 standard -->
+<html>           <!-- Root element that contains the entire web page -->
+
+<head>           <!-- Contains metadata and links to external resources -->
+    <meta charset="UTF-8">
+    <title>Multi-User Babylon.js GLB Viewer</title>   <!-- Text displayed in the browser tab -->
+    <link rel="stylesheet" href="BabylonJS_glb.css">  <!-- Loads the external CSS stylesheet -->
+</head>
+
+<!-- Contains all visible content displayed on the page -->
+<body>
+    <!-- Side panel with the controls -->
+    <div id="panel">
+        <h1>Multi-User BabylonJS glb Viewer</h1>
+
+        <div id="role">Connecting...</div>      <!-- Shows Host or Spectator -->
+        <div id="status"></div>                 <!-- Shows messages like "Loading..." -->
+        <div id="modelCount">Models in scene: 0</div>
+
+        <!-- Only the Host sees these controls -->
+        <div id="hostControls">
+            <h2>Host Controls</h2>
+
+            <!-- Pick one of the models that are already on the server -->
+            <h3>Add a Model</h3>
+            <select id="fileSelect"></select>
+            <button id="loadBtn">Load Model</button>
+
+            <!-- File picker (from Prof R's loader) to upload a new GLB file -->
+            <h3>Or Upload a New .glb</h3>
+            <input type="file" id="glbFileInput" accept=".glb">
+
+            <h3>Move a Model</h3>
+            <select id="modelSelect"></select>
+            <div id="moveButtons">
+                <button id="forwardBtn">Forward</button><br>
+                <button id="leftBtn">Left</button>
+                <button id="rightBtn">Right</button><br>
+                <button id="backBtn">Back</button><br>
+                <button id="upBtn">Up</button>
+                <button id="downBtn">Down</button>
+            </div>
+            <button id="removeBtn">Remove Model</button>
+            <button id="clearBtn">Clear Scene</button>
+        </div>
+
+        <!-- Spectators see this message instead -->
+        <div id="spectatorMessage">
+            You are a spectator. The Host controls which models are shown.
+            You can still rotate, zoom, and pan your own camera.
+        </div>
+
+        <p class="help">
+            Camera: left-drag to rotate, scroll to zoom, right-drag to pan.
+        </p>
+    </div>
+
+    <canvas id="renderCanvas"></canvas>     <!-- Canvas where BabylonJS renders the 3D scene -->
+
+    <!-- Loads the BabylonJS core engine library -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <!-- Loads BabylonJS file loaders including support for GLB files -->
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="BabylonJS_glb.js"></script>  <!-- Loads the application's JavaScript code -->
+</body>
+</html>
